@@ -1,4 +1,6 @@
 <script>
+    import Item from "../components/Item.svelte";
+
     export let data;
     export let form;
 </script>
@@ -15,8 +17,6 @@
     {/if}
 </form>
 
-<ul>
-    {#each data.items as item}
-        <li>{item.item}</li>
-    {/each}
-</ul>
+{#each data.tree as root}
+    <Item {...root}/>
+{/each}
