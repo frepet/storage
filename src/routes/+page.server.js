@@ -20,6 +20,19 @@ export async function load({locals}) {
     edges = edges.filter(edge => edge.child !== edge.parent)
     roots.forEach(root => tree[root.parent] = addNode(root.child, edges))
 
-    console.log(tree)
     return {items, tree}
 }
+
+/** @type {import('./$types').Actions} */
+export const actions = {
+    default: async (event) => {
+        const data = await event.request.formData();
+        try {
+            await event.locals.sql`INSERT INTO items (item) values (${data.get("name")});`
+        } catch (e) {
+            console.log(e)
+            return { success: false}
+        }
+        return { success: true}
+    }
+};

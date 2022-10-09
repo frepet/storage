@@ -4,9 +4,14 @@
 
 declare namespace App {
 	interface Locals {
-        test: string
+        sql: postgres
     }
-	// interface PageData {}
+	interface PageData {
+        items: {
+            items,
+            tree
+        }
+    }
 	// interface Error {}
 	// interface Platform {}
 }
