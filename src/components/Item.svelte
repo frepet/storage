@@ -8,7 +8,7 @@
     export let indent = 0;
     export let items = []
 
-    let open = false;
+    let open = true;
 
     function toggleOpen() {
         open = !open;
@@ -35,13 +35,13 @@
 
 <div class="flex">
     {#if children.length > 0}
-        <h3 class="pointer" style="padding-left: {indent}px" on:click={toggleOpen}>
+        <h4 class="pointer" style="padding-left: {indent}px" on:click={toggleOpen}>
             {open ? "▼" : "▶"} {name}
-        </h3>
+        </h4>
     {:else}
-        <h3 style="padding-left: {indent}px">
-            {name}
-        </h3>
+        <h4 style="padding-left: {indent}px">
+            ▷ {name}
+        </h4>
     {/if}
     <form method="POST" action="?/insert">
         <input name="id" type="number" value="{id}" hidden/>
