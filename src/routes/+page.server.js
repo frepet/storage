@@ -24,17 +24,27 @@ export async function load({locals}) {
     edges = edges.filter(edge => edge.child !== edge.parent)
     roots.forEach(root => tree.push(addNode(root.child, edges, items)))
 
-    return {tree}
+    return {tree, items}
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-    default: async (event) => {
+    insert: async (event) => {
         const data = await event.request.formData();
         try {
             const retVal = await event.locals.sql`INSERT INTO items (name) values (${data.get("name")}) RETURNING id;`
             const childId = retVal[0].id
             await event.locals.sql`INSERT INTO edges (child, parent) values (${childId}, ${data.get("id")});`
+        } catch (e) {
+            console.log(e)
+            return { success: false}
+        }
+        return { success: true}
+    },
+    move: async (event) => {
+        const data = await event.request.formData();
+        try {
+            await event.locals.sql`UPDATE edges SET parent=(${data.get("parent")}) WHERE child=${data.get("child")};`
         } catch (e) {
             console.log(e)
             return { success: false}
