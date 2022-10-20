@@ -300,7 +300,7 @@
 
         display: flex;
         flex-direction: column;
-        gap: 0.5em;
+        margin: auto 0;
     }
 
     .input-container {
@@ -309,8 +309,8 @@
 
     .combobox__input {
         margin: 0;
-        width: 100%;
-        padding: 0.8rem 1rem;
+        width: 6rem;
+        padding: 0.1rem 0.2rem;
         border: 0.175rem solid gray;
         border-radius: 0.3rem;
     }
@@ -327,12 +327,12 @@
         /* Reset */
         list-style: none;
         margin: 0;
-        padding: 0.3rem;
+        padding: 0.1rem;
         /* Position and Size */
         position: absolute;
         inset-inline-start: 0;
         inset-block-start: calc(100% + 0.3rem);
-        min-width: 100%;
+        width: 100%;
         max-height: 40vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -346,20 +346,20 @@
 
     .list__option-heading {
         font-size: 0.9em;
-        padding-inline: 1rem;
-        padding-block-start: 0.4rem;
+        padding-inline: 0.1rem;
+        padding-block-start: 0.1rem;
         color: gray;
     }
 
     .list__no-results {
-        padding: 0.8rem 1rem;
+        padding: 0.1rem 0.1rem;
     }
 
     .list__option {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.8rem 1rem;
+        padding: 0.1rem 0.1rem;
         border: 0.2rem solid transparent;
         border-radius: 0.3rem;
     }

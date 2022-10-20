@@ -23,17 +23,7 @@
     let newParent = undefined
 </script>
 
-<style>
-    .pointer {
-        cursor: pointer;
-        user-select: none;
-    }
-    .flex {
-        display: flex;
-    }
-</style>
-
-<div class="flex">
+<div class="flex row">
     {#if children.length > 0}
         <h4 class="pointer" style="padding-left: {indent}px" on:click={toggleOpen}>
             {open ? "▼" : "▶"} {name}
@@ -71,3 +61,22 @@
         <svelte:self {...child} indent={indent + 24} items={items}/>
     {/each}
 {/if}
+
+<style>
+    .pointer {
+        cursor: pointer;
+        user-select: none;
+    }
+    .flex {
+        display: flex;
+    }
+    .row {
+        height: 1.5rem;
+    }
+    form {
+        margin: auto 0.5rem auto 0.5rem;
+    }
+    h4 {
+        margin: auto 0;
+    }
+</style>

@@ -34,11 +34,12 @@
     /* Default styles */
     .ui :global(*) {
         box-sizing: border-box;
+        width: 24rem;
     }
 
     /* Design tokens */
     .ui {
-
+        margin: auto 0;
     }
 
     /* Utility classes */
