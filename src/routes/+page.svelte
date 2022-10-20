@@ -5,6 +5,20 @@
 </script>
 
 <h1>Storage</h1>
-{#each data.tree as root}
-    <Item {...root} items={data.items.map(o => {return {text: o.name, value: o.id}})}/>
-{/each}
+<hr/>
+<div class="storageContainer">
+    {#each data.tree as root}
+        <div class="rootContainer">
+            <Item {...root} items={data.items.map(o => {return {text: o.name, value: o.id}})}/>
+        </div>
+    {/each}
+</div>
+
+<style>
+    .storageContainer {
+        display: flex;
+    }
+
+    .rootContainer {
+    }
+</style>

@@ -71,7 +71,7 @@
         display: flex;
     }
     .row {
-        height: 1.5rem;
+        height: fit-content;
     }
     form {
         margin: auto 0.5rem auto 0.5rem;
